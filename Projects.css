@@ -86,17 +86,8 @@
 }
 .bks-projects{
     width: 80%;
-    height: 65vh;
+    height: 80vh;
     background-color: white;
-    animation: projects 1s ease-in-out;
-}
-@keyframes projects{
-    from{
-        transform: translatex(-100%);
-    }
-    to{
-        transform: translatex(0);
-    }
 }
 .project-name{
     width: 100%;
@@ -131,6 +122,70 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.wrapper-more-projects{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bks-wrapper-more-projects{
+    width: 93%;
+
+}
+.more-projects{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bks-more-projects2{
+    width: 103%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,rgb(38, 255, 0),rgb(133, 249, 247));
+}
+.bks-more-projects2 h1{
+    font-size: 15px;
+    color: white;
+}
+.wrapper-a{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bks-wrapper-a{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.a-1{
+    width: 20%;
+    height: 7vh;
+    border-radius: 10px;
+    background: linear-gradient(rgb(61, 113, 255),rgb(120, 91, 226));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.a-1:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgb(67, 126, 253);
+    box-shadow: 0 0 30px rgb(133, 249, 247);
+}
+.a-1 a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 .previous-page{
     width: 100%;
@@ -254,7 +309,7 @@
     .bks-top{
         width: 30%;
         height: 10vh;
-        margin-left: 10px   ;
+        margin-left: 10px;
     }
     .bks-top a{
         font-size: 18px;
@@ -283,7 +338,8 @@
     }
     .bks-projects{
         width: 90%;
-        height: 150vh;
+        height: 163vh;
+        margin-top: 100px;
     }
     .project-name{
         width: 100%;
@@ -324,7 +380,7 @@
     .previous-page{
         width: 100%;
         height: 10vh;
-        margin-top: 200px;
+        margin-top: 0px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -356,5 +412,26 @@
         width: 50%;
         height: 5vh;
         font-size: 12px;
+    }
+    .bks-more-projects2{
+        width: 100%;
+        height: 5vh;
+        margin-top: 400px;
+    }
+    .wrapper-a{
+        width: 100%;
+        height: 8vh;
+        margin-top: 200px;
+    }
+    .bks-wrapper-a{
+        width: 100%;
+        height: 5vh;
+    }
+    .a-1{
+        width: 30%;
+        height: 5vh;
+    }
+    .a-1 a{
+        font-size: 9px;
     }
 }

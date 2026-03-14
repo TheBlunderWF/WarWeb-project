@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Projects-3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="shortcut icon" href="letter-w.png" type="image/x-icon">
+    <title>WarWeb</title>
+</head>
+<body>
+        <div class="navbar">
+        <main>
+            <h1>Password Generator</h1>
+            <div class="generatePass">
+                <input type="text" id="passwordGenerate" readonly placeholder="ABc@321Abb">
+                <i  id="copyBtn"  class="fa-solid fa-copy"></i>
+            </div>
+            <div class="selectItems">
+                <div class="select">
+                    <label for="length">Password Length</label>
+                    <input type="number" id="length" min="1" max="20" value="8">
+                </div>
+                <div class="select">
+                    <label for="lower">Include Lower</label>
+                    <input type="checkbox" id="lower">
+                </div>
+                <div class="select">
+                    <label for="upper">Include Uppercase</label>
+                    <input type="checkbox" id="upper">
+                </div>
+                <div class="select">
+                    <label for="number">Include Numbers</label>
+                    <input type="checkbox" id="number">
+                </div>
+                <div class="select">
+                    <label for="symbol">Include Symbols</label>
+                    <input type="checkbox" id="symbol">
+                </div>
+            </div>
+            <div>
+                <button class="generateBtn" id="generateBtn">Generate Password</button>
+            </div>
+        </main>
+    </div>
+    <script>
+        const upperSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        const lowerSet = "abcdefghijklmnopqrstuvwxyz"
+        const numberSet = "1234567890"
+        const symbolSet = "~!@#$%^&*()_+/"
+
+        const passwordGenerate = document.getElementById("passwordGenerate");
+        const lengthRange = document.getElementById("length");
+        const lower = document.getElementById("lower");
+        const upper = document.getElementById("upper");
+        const number = document.getElementById("number");
+        const symbol = document.getElementById("symbol");
+        const generateBtn = document.getElementById("generateBtn");
+
+        const generateRandom = (getData)=>{
+            return getData[Math.floor(Math.random() * getData.length)]
+        }
+
+        const generatePassword = (password = "")=>{
+            let selectOption = 0;
+
+            if(lower.checked){
+                password += generateRandom(lowerSet)
+                selectOption++
+            }
+            if(upper.checked){
+                password += generateRandom(upperSet)
+                selectOption++
+            }
+            if(number.checked){
+                password += generateRandom(numberSet)
+                selectOption++
+            }
+            if(symbol.checked){
+                password += generateRandom(symbolSet)
+                selectOption++
+            }
+
+            if(parseInt(lengthRange.value) < selectOption){
+                lengthRange.value = selectOption
+            }
+
+            if(!password){
+                return alert("Please select at least one option to generate a password.")
+            }
+
+            if(password.length < lengthRange.value){
+                return generatePassword(password)
+            } else{
+                passwordGenerate.value = password.substring(0, lengthRange.value)
+            }
+        }
+
+        generateBtn.addEventListener("click",()=>{
+            generatePassword()
+        })
+
+        document.getElementById("copyBtn").addEventListener("click",()=>{
+            let inpValue = passwordGenerate.value;
+
+            if(!inpValue){
+                alert("Nothing to Copy!")
+                return
+            }
+
+            navigator.clipboard.writeText(inpValue)
+            .then(()=>{
+                alert("Password Copied!")
+            })
+            .catch(()=>{
+                alert("Failed to copy!")
+            })
+        })
+    </script>
+</body>
+</html>

@@ -97,15 +97,6 @@
     width: 80%;
     height: 74vh;
     background-color: white;
-    animation: bawah 2s ease-in-out forwards;
-}
-@keyframes bawah{
-    0%{
-        transform: translateY(47px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
 }
 .contact{
     width: 100%;

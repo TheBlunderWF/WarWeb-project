@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="projects-2.css">
+    <link rel="shortcut icon" href="letter-w.png" type="image/x-icon">
+    <title>WarWeb</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="bks-wrapper">
+                        <div class="circle c1"></div>
+    <div class="circle c2"></div>
+
+    <div class="container">
+        <h1>Age <span>Calculator</span></h1>
+
+    <div class="input-group">
+        <label for="date-input">Select your Birth Date</label>
+        <input type="date" id="date-input">
+    </div>
+
+    <button id="calculateBtn">Calculate Now</button>
+
+    <div class="result-box">
+        <div class="result-card">
+            <span id="years" class="number">--</span>
+            <span class="label">Years</span>
+        </div>
+        <div class="result-card">
+            <span id="months" class="number">--</span>
+            <span class="label">Months</span>
+        </div>
+        <div class="result-card">
+            <span id="days" class="number">--</span>
+            <span class="label">Days</span>
+        </div>
+    </div>
+
+    <div class="footer-text">Premium UI Design</div>
+    </div>
+        </div>
+    </div>
+
+    <script>
+        const dateInput = document.getElementById("date-input");
+const calculateBtn = document.getElementById("calculateBtn");
+
+const years = document.getElementById("years");
+const months = document.getElementById("months");
+const days = document.getElementById("days");
+
+const calculateAge = (dob) => {
+    let currentDate = new Date();
+    let userDob = new Date(dob);
+
+    let year = currentDate.getFullYear() - userDob.getFullYear();
+    let month = currentDate.getMonth() - userDob.getMonth();
+    let day = currentDate.getDate() - userDob.getDate();
+
+    if(day < 0){
+        month--;
+        day += new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+    }
+
+    if(month < 0){
+        year--;
+        month += 12;
+    }
+
+    years.innerText = year;
+    months.innerText = month;
+    days.innerText = day;
+}
+
+calculateBtn.addEventListener("click", ()=>{
+    let inpDate = dateInput.value;
+
+    if(!inpDate){
+        alert("Please Select A Date First!");
+        return;
+    }
+
+    calculateAge(inpDate);
+});
+    </script>
+</body>
+</html>

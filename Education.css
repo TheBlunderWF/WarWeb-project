@@ -97,15 +97,6 @@
     width: 80%;
     height: 40vh;
     background-color: white;
-    animation: kanan 1s ease-in-out forwards;
-}
-@keyframes kanan{
-    0%{
-        transform: translateX(-70%);
-    }
-    100%{
-        transform: translateX(0);
-    }
 }
 .education{
     width: 100%;
@@ -135,41 +126,14 @@
 .kotak{
     width: 30%;
     height: 20vh;
-    animation: bawah 1s ease-in-out forwards;
-}
-@keyframes bawah{
-    0%{
-        transform: translateY(250%);
-    }
-    100%{
-        transform: translateY(0);
-    }
 }
 .kotak-2{
     width: 30%;
     height: 20vh;
-    animation: bawah 2s ease-in-out forwards;
-}
-@keyframes bawah{
-    0%{
-        transform: translateY(270%);
-    }
-    100%{
-        transform: translateY(0);
-    }
 }
 .kotak-3{
     width: 30%; 
     height: 20vh;
-    animation: bawah 3s ease-in-out forwards;
-}
-@keyframes bawah{
-    0%{
-        transform: translateY(150%);
-    }
-    100%{
-        transform: translateY(0);
-    }
 }
 .Tahun{
     width: 100%;
@@ -249,15 +213,6 @@
     display: flex;
     justify-content: center;
     align-items: center;   
-    animation: atas 3s ease-in-out forwards;
-}
-@keyframes atas{
-    0%{
-        transform: translateY(450%);
-    }
-    100%{
-        transform: translateY(0);
-    }
 }
 .bks-previous-page{
     width: 30%;

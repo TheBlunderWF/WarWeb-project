@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Projects-4.css">
+    <link rel="shortcut icon" href="letter-w.png" type="image/x-icon">
+    <title>WarWeb</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="card">
+            <h1>Color Designer</h1>
+            <div id="colorBox" class="color-box">
+                <span class="color-code" id="color-code">#FFFFFF</span>
+            </div>
+            <div class="controls">
+                <input type="text" id="inp" placeholder="#ff5733 or rgb(255,87,51)">
+                <button id="generateBtn">Random</button>
+                <button id="copyBtn">Copy</button>
+            </div>
+            <div class="muted">
+                Tip: click any chip to apply. Copy uses Clipboard API when available - fallback provided.
+            </div>
+        </div>
+    </div>
+    <script>
+        const colorBox = document.getElementById("colorBox")
+        const colorCode = document.getElementById("colorCode")
+        const inp = document.getElementById("inp")
+        const generateBtn = document.getElementById("generateBtn")
+        const copyBtn = document.getElementById("copyBtn")
+
+                const randomHex = () =>{
+            const color_code = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0").toUpperCase();
+
+            colorBox.style.backgroundColor = color_code;
+            colorBox.textContent = color_code;
+            inp.value = color_code;
+        }
+
+        generateBtn.addEventListener("click",()=>{
+            randomHex( )
+        })
+
+        copyBtn.addEventListener("click",()=>{
+            let copyCode = inp.value;
+
+            if(copyCode){
+                let newDiv = document.createElement("div")
+                newDiv.classList.add("toast")
+                newDiv.textContent = `Copied: ${copyCode}`
+                document.body.appendChild(newDiv)
+
+                navigator.clipboard.writeText(copyCode);
+                setTimeout(()=>{
+                    newDiv.style.opacity = "0"
+                    newDiv.remove();
+                }, 1400);
+            } else{
+                alert("Invalid Color, use #RRGGBB, #RGB or rgba(r, g,b)")
+            }
+        })
+    </script>
+</body>
+</html>
